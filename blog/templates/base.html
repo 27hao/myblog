@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <link rel="stylesheet" type="text/css" href="/static/css.css">
+  <title>{% block title %}{% endblock %}</title>
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	var hm = document.createElement("script");
+	hm.src = "//hm.baidu.com/hm.js?7b083b82c4add0f1a9685f02abe3d45a";
+	var s = document.getElementsByTagName("script")[0];
+	s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+ </head>
+ <body>
+  <div id="body">
+	  <div id="head">
+	   <h1 style="">网页设计大赛</h1>
+	   <div>
+	   {% for k in kinds %}
+	   <a href=/index/{{ k.id }}>{{ k.name }}</a>
+	   {% endfor %}
+	   </div>
+	  </div>
+	  <div id="center">
+		{% block body %}{% endblock %}
+	  </div>
+	<div id="foot">
+	</div>
+  </div>
+ </body>
+</html>

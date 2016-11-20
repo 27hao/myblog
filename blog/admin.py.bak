@@ -15,7 +15,7 @@ class ArticleAdmin(admin.ModelAdmin):
 admin.site.register(Article,ArticleAdmin)
 class CommentAdmin(admin.ModelAdmin):
 	list_display=("id",'article',"time","email")
-	search_fields=("article","email")
+	search_fields=("title","kind")
 	date_hierarchy = 'time'
-	list_filter=('id','article','time')
+	list_filter=('id','kind','time')
 admin.site.register(Comment,CommentAdmin)

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}
+	{{ title }}
+{% endblock %}
+
+{% block body %}
+	{% for article in articles %}
+		<div id="article">
+			<p><a href="#">{{article.title}}</a></p>
+			<a id="a">{{article.kind}}</a>
+			•<a>{{article.time}}</a>
+			{{i}}
+			•<a>共10个评论</a>
+		</div>
+	{% endfor %}
+	<div id="page">
+		<div>
+			<a href=>
+		</div>
+		{% for i in pages %}
+		{% endfor %}
+		<div>
+		</div>
+	</div>
+{% endblock %}
