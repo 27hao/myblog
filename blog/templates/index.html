@@ -6,21 +6,19 @@
 
 {% block body %}
 	{% for article in articles %}
-		<div id="article">
-			<p><a href="#">{{article.title}}</a></p>
+		<div id="articlelist">
+			<p><a href="/article/{{ article.id }}/">{{article.title}}</a></p>
 			<a id="a">{{article.kind}}</a>
 			•<a>{{article.time}}</a>
-			{{k}} {{p}}
-			•<a>共10个评论</a>
+			•<a>{{article.user}}</a>
+			•<a>共{{article.comment_set.all|length}}个评论</a>
 		</div>
 	{% endfor %}
-	<div id="page">
-		<div>
-			<a href=>
-		</div>
-		{% for i in pages %}
-		{% endfor %}
-		<div>
-		</div>
+	<div id="pages">
+	<a href="/index/{{kind}}/1"><</a>
+	{% for page in pages %}
+			<a href="/index/{{kind}}/{{page}}">{{ page }}</a>
+	{% endfor %}
+	<a href="/index/{{kind}}/{{pages|length}}">></a>
 	</div>
 {% endblock %}

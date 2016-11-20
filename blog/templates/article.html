@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}
+	{{ title }}
+{% endblock %}
+
+{% block body %}
+	<div id="article">
+		<p class="title">>>{{ article.title }}</p>
+		<pre>{{ article.text }}</pre>
+		<p class="info">{{ article.user }}创建于{{article.time}}</p>
+	</div>
+	
+	<div id="commentlist">
+		<p style="background:#e8e8e8;font-size:22px;">>>>>>>评论列表<<<<<<</p>
+		{% for comment in comments %}
+			<div id="com">
+			<p>{{comment.email}} {{comment.id}}楼，{{comment.time}}</p>
+			<p id="text">{{comment.text}}</p>
+			</div>
+		{% empty %}
+			<div id="com">
+			无
+			</div>
+		{% endfor %}
+	</div>
+	<p style="background:#e8e8e8;font-size:22px;color:gray;">>>>>>>评论<<<<<<<</p>
+	<div id="comment">
+		
+		<form action="/article/{{ article.id }}/" method="post">{% csrf_token %}  
+		<label style='font-size:25px;'>邮箱:</label><input style="font-size:20px" type="text" name="email"/><br>
+		<textarea name="text" rows="12" cols="70" style="font-size:20px">
+		</textarea><br>
+		<input style="background:#417690;color:white;width:100px;height:50px;"type="submit" value="提交"/>
+		</form>
+	</div>
+{% endblock %}
